@@ -1,0 +1,26 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "This is an ecommerce website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kionken68/Amazon_Web.git"
+  },
+  "author": "AnhTuan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kionken68/Amazon_Web/issues"
+  },
+  "homepage": "https://github.com/kionken68/Amazon_Web#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.12",
+    "morgan": "^1.7.0"
+  }
+}
