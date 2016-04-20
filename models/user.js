@@ -10,12 +10,12 @@ profile:{
   name:{type: String, default:''},
   picture:{type: String,default:''}
 },
-
 address: String,
-history[{
+history:[{
   date: Date,
   paid:{ type: Number, default:0},
-}]
+}],
+
 });
 UserSchema.pre('save',function(next){
   var user=this;
