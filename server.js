@@ -4,15 +4,18 @@ var mongoose=require('mongoose');
 var bodyParser=require('body-parser');
 var ejs=require('ejs');
 var engine=require('ejs-mate');
-var session=require('session');
+var session=require('express-session');
 var cookieParser=require('cookie-parser');
 var flash=require('express-flash');
+var MongoStore=require('connect-mongo')(session);
+var passport=require('passport');
 
 var User =require('./models/user');
+var secret=require('./config/secret');
 
 var app=express();
 
-mongoose.connect('mongodb://root:123456@ds013931.mlab.com:13931/ecommerce_vn',function(err){
+mongoose.connect(secret.database,function(err){
   if(err){
     console.log(err);
   }else{
@@ -23,9 +26,19 @@ mongoose.connect('mongodb://root:123456@ds013931.mlab.com:13931/ecommerce_vn',fu
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(cookieParser());
+app.use(session({
+  resave: true,
+  saveUninitialized: true,
+  secret:secret.secretKey,
+  store: new MongoStore({url:secret.database ,autoReconnect: true})
+}));
 app.engine('ejs',engine);
 app.set('view engine','ejs');
 app.use(express.static(__dirname + '/public'));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 
@@ -35,7 +48,7 @@ app.use(mainRoutes);
 app.use(userRoutes);
 
 
-app.listen(3000,function(err){
+app.listen(secret.port,function(err){
   if(err)throw err;
   console.log("Server is Running on port 3000");
 });
