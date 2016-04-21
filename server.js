@@ -4,6 +4,9 @@ var mongoose=require('mongoose');
 var bodyParser=require('body-parser');
 var ejs=require('ejs');
 var engine=require('ejs-mate');
+var session=require('session');
+var cookieParser=require('cookie-parser');
+var flash=require('express-flash');
 
 var User =require('./models/user');
 
@@ -22,29 +25,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.engine('ejs',engine);
 app.set('view engine','ejs');
+app.use(express.static(__dirname + '/public'));
 
 
 
-app.post('/create-user',function(req,res,next){
-  var user=new User();
-  user.profile.name=req.body.name;
-  user.password=req.body.password;
-  user.email=req.body.email;
+var mainRoutes=require('./routes/main');
+var userRoutes=require('./routes/user');
+app.use(mainRoutes);
+app.use(userRoutes);
 
-  user.save(function(err){
-    if(err) return next(err);
-
-    res.json('Tạo Mới Thành Công!');
-  });
-});
-
-app.get('/',function(req,res){
-  res.render('main/home');
-});
-
-app.get('/about',function(req,res){
-  res.render('main/about');
-});
 
 app.listen(3000,function(err){
   if(err)throw err;
