@@ -4,18 +4,21 @@ var passport=require('passport');
 var passportConf=require('../config/passport');
 
 router.get('/login',function(req,res){
-  if(req.user)return res.redirect('/');
-  res.render('accounts/login',{message:req.flash('loginMessage')});
+  if(req.user) return res.redirect('/profile');
+  res.render('account/login',{message:req.flash('loginMessage')});
 });
 
 router.post('/login',passport.authenticate('local-login',{
-  successRedirect: '/profile',
+  successRedirect:'/profile',
   failureRedirect:'/login',
   failureFlash:true
 }));
 
-router.get('/profile',function(req,res){
-  res.json(req.user);
+router.get('/profile',function(req,res,next){
+User.findOne({_id:req.user._id},function(err,user){
+  if(err) return next(err);
+  res.render('account/profile',{user:user});
+});
 });
 
 router.get('/signup',function(req,res, next){
