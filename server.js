@@ -10,8 +10,10 @@ var flash=require('express-flash');
 var MongoStore=require('connect-mongo')(session);
 var passport=require('passport');
 
+
 var User =require('./models/user');
 var secret=require('./config/secret');
+var Category=require('./models/category');
 
 var app=express();
 
@@ -44,12 +46,25 @@ app.use(function(req,res,next){
   next();
 });
 
+app.use(function(req,res,next){
+  Category.find({},function(err,categories){
+    if(err) return next(err);
+    res.locals.categories=categories;
+    next();
+  });
+});
+
 
 
 var mainRoutes=require('./routes/main');
 var userRoutes=require('./routes/user');
+var adminRoutes=require('./routes/admin');
+var apiRoutes=require('./api/api');
 app.use(mainRoutes);
 app.use(userRoutes);
+app.use(adminRoutes);
+app.use('/api',apiRoutes);
+
 
 
 app.listen(secret.port,function(err){
