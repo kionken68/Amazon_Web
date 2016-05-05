@@ -23,7 +23,7 @@ mongoose.connect(secret.database,function(err){
   }else{
     console.log("Connected to the database");
   }
-})
+});
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());

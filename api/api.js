@@ -14,10 +14,10 @@ router.get('/:name',function(req,res,next){
         callback(null,category);
       });
     },
-    function(callback){
+    function(category,callback){
       for(var i=0; i<30;i++){
         var product=new Product();
-        product.category=Category._id;
+        product.category=category._id;
         product.name=faker.commerce.productName();
         product.price=faker.commerce.price();
         product.image=faker.image.image();
