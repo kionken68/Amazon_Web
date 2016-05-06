@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/kionken68/Amazon_Web#readme",
   "dependencies": {
-    "async": "^2.0.0-rc.3",
+    "async": "^2.0.0-rc.4",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.0",
     "connect-mongo": "^1.1.0",
@@ -29,6 +29,7 @@
     "express-flash": "0.0.2",
     "express-session": "^1.13.0",
     "faker": "^3.1.0",
+    "mongoosastic": "^4.0.2",
     "mongoose": "^4.4.12",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",

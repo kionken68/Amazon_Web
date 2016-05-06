@@ -20,7 +20,7 @@ stream.on('data',function(){
 });
 
 stream.on('close',function(){
-  console.console.log("Indexed "+count+" document");
+  console.log("Indexed "+count+" document");
 });
 
 stream.on('error',function(err){
