@@ -12,3 +12,17 @@
 [2016-05-09 09:10:51,813][INFO ][node                     ] [Orchid] started
 [2016-05-09 09:10:52,079][INFO ][gateway                  ] [Orchid] recovered [1] indices into cluster_state
 [2016-05-09 09:10:54,086][INFO ][cluster.routing.allocation] [Orchid] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[products][4]] ...]).
+[2016-05-09 16:15:06,970][INFO ][node                     ] [Black Box] version[2.3.2], pid[4772], build[b9e4a6a/2016-04-21T16:03:47Z]
+[2016-05-09 16:15:06,974][INFO ][node                     ] [Black Box] initializing ...
+[2016-05-09 16:15:07,621][INFO ][plugins                  ] [Black Box] modules [reindex, lang-expression, lang-groovy], plugins [], sites []
+[2016-05-09 16:15:07,647][INFO ][env                      ] [Black Box] using [1] data paths, mounts [[Data D (E:)]], net usable_space [300.4gb], net total_space [344.3gb], spins? [unknown], types [NTFS]
+[2016-05-09 16:15:07,651][INFO ][env                      ] [Black Box] heap size [910.5mb], compressed ordinary object pointers [true]
+[2016-05-09 16:15:10,041][INFO ][node                     ] [Black Box] initialized
+[2016-05-09 16:15:10,043][INFO ][node                     ] [Black Box] starting ...
+[2016-05-09 16:15:10,228][INFO ][transport                ] [Black Box] publish_address {127.0.0.1:9300}, bound_addresses {127.0.0.1:9300}, {[::1]:9300}
+[2016-05-09 16:15:10,236][INFO ][discovery                ] [Black Box] elasticsearch/Mi5ju0RhQquXY5vtXFTPzA
+[2016-05-09 16:15:14,272][INFO ][cluster.service          ] [Black Box] new_master {Black Box}{Mi5ju0RhQquXY5vtXFTPzA}{127.0.0.1}{127.0.0.1:9300}, reason: zen-disco-join(elected_as_master, [0] joins received)
+[2016-05-09 16:15:14,417][INFO ][gateway                  ] [Black Box] recovered [1] indices into cluster_state
+[2016-05-09 16:15:14,418][INFO ][http                     ] [Black Box] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}, {[::1]:9200}
+[2016-05-09 16:15:14,425][INFO ][node                     ] [Black Box] started
+[2016-05-09 16:15:17,629][INFO ][cluster.routing.allocation] [Black Box] Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[products][4]] ...]).

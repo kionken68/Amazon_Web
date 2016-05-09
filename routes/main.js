@@ -67,7 +67,7 @@ router.get('/search',function(req,res,next){
   }
 });
 
-router.get('/',function(req,res){
+router.get('/',function(req,res,next){
 if(req.user){
   paginate(req,res,next);
 }else {
